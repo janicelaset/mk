@@ -9,7 +9,11 @@ class CluesController < ApplicationController
 
   def update
     @clue = Clue.find(params[:id])
-    @clue.update(clue_params)
+
+    guess = clue_params[:guess].downcase
+    if (guess === @clue.answer)
+      @clue.update(clue_params)
+    end
   end
 
 private
