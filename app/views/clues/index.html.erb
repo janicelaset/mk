@@ -1,0 +1,7 @@
+<div id="btn-clue1">
+  <% @clues.each do |clue| %>
+    <li><%= link_to "Clue ##{clue.id}", edit_clue_path(clue), remote: true,  class: "btn btn-primary" %></li>
+  <% end %>
+</div>
+
+<div id="clue-modal" class="modal fade"></div>
