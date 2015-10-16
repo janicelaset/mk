@@ -17,7 +17,8 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("#btn_clue1").click(function() {
-
+  $(".btn_clues").click(function() {
+    debugger;
+    alert('test');
   });
 });
