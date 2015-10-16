@@ -1,5 +1,4 @@
 class CluesController < ApplicationController
-  # respond_to :html, :js
 
   def index
     @clues = Clue.all.order(id: :asc)
@@ -11,18 +10,22 @@ class CluesController < ApplicationController
 
   def update
     @clue = Clue.find(params[:id])
+    @clues = Clue.all
 
     guess = clue_params[:guess].downcase
     if (guess === @clue.answer)
+      @clue.display = true;
       @clue.update(clue_params)
     else
-      flash[:notice] = "WTF Try Again!"
+      #flash[:notice] only disappears at the second redirect
+      #flash.now[:notice] will only display for current page
+      flash.now[:notice] = "WTF Try Again!"
       render :edit
     end
   end
 
 private
   def clue_params
-    params.require(:clue).permit(:guess)
+    params.require(:clue).permit(:guess, :display)
   end
 end

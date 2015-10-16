@@ -1,0 +1,9 @@
+<% @clues.each do |clue| %>
+  <li>
+    <% if clue.display === true %>
+      <h4><%= clue.description %></h4>
+    <% else %>
+      <%= link_to "Clue ##{clue.id}", edit_clue_path(clue), remote: true,  class: "btn btn-primary" %>
+    <% end %>
+  </li>
+<% end %>
