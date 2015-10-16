@@ -1,4 +1,6 @@
 class CluesController < ApplicationController
+  # respond_to :html, :js
+
   def index
     @clues = Clue.all.order(id: :asc)
   end
@@ -13,6 +15,9 @@ class CluesController < ApplicationController
     guess = clue_params[:guess].downcase
     if (guess === @clue.answer)
       @clue.update(clue_params)
+    else
+      flash[:notice] = "WTF Try Again!"
+      render :edit
     end
   end
 

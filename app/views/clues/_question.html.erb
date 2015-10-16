@@ -11,6 +11,7 @@
 
       </div>
       <div class="modal-footer">
+        <%= flash[:notice] %>
         <%= f.submit 'Guess', class: "btn btn-primary" %>
         <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
       </div>
