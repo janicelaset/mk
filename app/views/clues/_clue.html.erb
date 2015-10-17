@@ -2,7 +2,9 @@
   <li>
     <div class="item-clue">
       <% if clue.display === true %>
+      <div class="text-clue">
         <h4><%= clue.description %></h4>
+      </div>
       <% else %>
         <div class="btn-clues">
           <%= link_to "CLUE ##{clue.id}", edit_clue_path(clue), remote: true,  class: "btn btn-primary btn-clue" %>
