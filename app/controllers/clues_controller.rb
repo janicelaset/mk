@@ -3,7 +3,7 @@ class CluesController < ApplicationController
   def index
     @clues = Clue.all.order(id: :asc)
     @location = Location.first
-
+    @clue = Clue.first
   end
 
   def edit

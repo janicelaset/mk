@@ -26,7 +26,7 @@
       question: 'An invisible space that could only be visited on the phone.',
       answer: 'third space',
       display: false },
-    { description: "Some infinities are bigger than other infinities. Look at it from a different perspective, you'll see three infinities are also bigger than one.",
+    { description: "Some infinities are bigger than other infinities, and there can be many of them. Look at it from a different perspective, and you can see three infinities.",
       question: "Do you know my most preferred color?",
       answer: 'yes',
       display: false }])
