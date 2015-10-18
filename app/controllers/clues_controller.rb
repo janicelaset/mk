@@ -2,15 +2,20 @@ class CluesController < ApplicationController
 
   def index
     @clues = Clue.all.order(id: :asc)
+    @location = Location.first
+
   end
 
   def edit
     @clue = Clue.find(params[:id])
+    @location = Location.first
+
   end
 
   def update
     @clue = Clue.find(params[:id])
     @clues = Clue.all
+    @location = Location.first
 
     guess = clue_params[:guess].downcase
     if (guess === @clue.answer)

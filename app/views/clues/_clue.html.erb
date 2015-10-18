@@ -13,3 +13,41 @@
     </div>
   </li>
 <% end %>
+
+<% if Clue.complete == true %>
+<%= form_for [@clue, @location] do |f| %>
+  <%= f.label @location.where, class:"control-label" %>
+  <%= f.text_field :guess, class: "form-control" %>
+  <br>
+  <%= f.submit 'Submit', class: "btn btn-primary" %>
+<% end %>
+  <% if Location.correct == true %>
+    <center>
+    <br>
+    Congratulations! Find your present here.
+    <div style='width: 400px; height: 250'>
+      <div id="map" style='width: 400px; height: 200px;'></div>
+    </div>
+    </center>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 45.517467,
+      "lng": -122.677870,
+      "picture": {
+        "url": "https://maps.google.com/mapfiles/kml/pal3/icon57.png",
+        "width":  36,
+        "height": 36
+      },
+      "infowindow": ""
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
